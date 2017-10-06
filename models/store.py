@@ -8,7 +8,7 @@ class StoreModel(db.Model):
 
     items = db.relationship('ItemModel', lazy='dynamic')
 
-    def __init__(self, name, store_id):
+    def __init__(self, name, id):
         self.name = name
         self.id = id
 
