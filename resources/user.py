@@ -1,5 +1,6 @@
 import sqlite3
 from flask_restful import Resource, reqparse
+from flask_jwt import jwt_required
 from models.user import UserModel
 
 class UserRegister(Resource):
@@ -16,7 +17,7 @@ class UserRegister(Resource):
                         help="This field cannot be left blank"
                         )
 
-
+    @jwt_required()
     def post(self):
 
         data = UserRegister.parser.parse_args()
